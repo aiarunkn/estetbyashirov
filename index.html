@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ESTET by Ashirov Azamat — Премиальный уход за волосами</title>
+<meta name="description" content="ESTET by Ashirov Azamat — премиальная линия ухода за волосами и профессиональные бьюти-студии в Казахстане. Шампуни, стайлер 8-в-1, студии красоты." />
+
+<!-- Open Graph / social (replace image with an ABSOLUTE url once deployed, e.g. https://yourdomain/images/hero.jpg) -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="ESTET by Ashirov Azamat — Премиальный уход за волосами" />
+<meta property="og:description" content="Премиальная линия ухода за волосами и профессиональные бьюти-студии ESTET." />
+<meta property="og:image" content="/images/hero.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#1A1512" />
+
+<!--
+  ============================================================
+  ESTET by Ashirov Azamat — landing page
+  IMAGES: put them in an /images/ folder next to this file
+  (static deploy), or in /public/images/ if you port to Next.js.
+  Filenames used below:
+    hero.jpg  product-coconut.jpg  styler-box.jpg  styler-use.jpg
+    studio-opening.jpg  event.jpg  founder-1.jpg  founder-2.jpg  founder-casual.jpg
+  Replace every TODO (phone, Instagram handle, addresses, hours, wa.me number).
+  NOTE: all three product cards currently reuse product-coconut.jpg —
+  swap in real Protein / Ginger bottle shots when available.
+  ============================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --cream:#F4EEE6;
+    --cream-2:#EBE3D7;
+    --ink:#1A1512;
+    --espresso:#372D27;
+    --taupe:#97836F;
+    --sand:#D6C4AE;
+    --gold:#B39A6A;
+    --line:rgba(26,21,18,.14);
+    --serif:"Cormorant Garamond",Georgia,serif;
+    --sans:"Jost",system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);
+    background:var(--cream);
+    color:var(--ink);
+    font-weight:300;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{display:block;width:100%;height:100%;object-fit:cover}
+  a{color:inherit;text-decoration:none}
+
+  /* keep anchored sections clear of the fixed header */
+  section[id],footer[id]{scroll-margin-top:84px}
+
+  /* visible keyboard focus */
+  a:focus-visible,.btn:focus-visible,summary:focus-visible,
+  .menu-toggle:focus-visible,.menu-check:focus-visible ~ .menu-toggle{
+    outline:2px solid var(--gold);outline-offset:3px;border-radius:3px;
+  }
+
+  .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+  .eyebrow{
+    font-family:var(--sans);
+    font-size:11px;font-weight:400;
+    letter-spacing:.34em;text-transform:uppercase;
+    color:var(--taupe);
+  }
+  .display{
+    font-family:var(--serif);
+    font-weight:500;line-height:1.04;
+    letter-spacing:-.01em;
+  }
+  h2.display{font-size:clamp(2.1rem,5vw,3.6rem)}
+  .lead{font-size:clamp(1rem,1.4vw,1.15rem);color:var(--espresso);font-weight:300}
+
+  /* ---------- monogram ---------- */
+  .mono{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:44px;height:44px;border-radius:50%;
+    border:1px solid currentColor;
+    font-family:var(--serif);font-weight:500;font-size:20px;
+    letter-spacing:-.06em;line-height:1;
+  }
+
+  /* ---------- nav ---------- */
+  header{
+    position:fixed;inset:0 0 auto 0;z-index:60;
+    transition:background .4s ease,box-shadow .4s ease,color .4s ease;
+    color:var(--cream);
+  }
+  header.solid{background:var(--cream);color:var(--ink);box-shadow:0 1px 0 var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .name{font-family:var(--serif);font-size:1.5rem;letter-spacing:.16em;line-height:1}
+  .brand .sub{font-size:9px;letter-spacing:.28em;text-transform:uppercase;opacity:.7}
+  .navlinks{display:flex;align-items:center;gap:34px}
+  .navlinks a{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;transition:opacity .2s}
+  .navlinks a:hover{opacity:1}
+  .btn{
+    font-family:var(--sans);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    padding:12px 26px;border:1px solid currentColor;border-radius:999px;
+    transition:background .25s,color .25s;white-space:nowrap;cursor:pointer;background:none;
+  }
+  header .btn:hover{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+  header.solid .btn:hover{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+  .lang{font-size:12px;letter-spacing:.12em;opacity:.7}
+  .lang b{opacity:1}
+  /* toggle hidden but keyboard-focusable (not display:none) */
+  .menu-toggle{display:none}
+  .menu-check{position:absolute;opacity:0;width:1px;height:1px;overflow:hidden;pointer-events:none}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;color:var(--cream)}
+  .hero .bg{position:absolute;inset:0;z-index:-2}
+  .hero .bg::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(26,21,18,.45) 0%,rgba(26,21,18,.15) 40%,rgba(26,21,18,.72) 100%)}
+  .hero-inner{width:100%;padding-bottom:8vh;padding-top:120px}
+  .hero .eyebrow{color:rgba(244,238,230,.85)}
+  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.8rem,8vw,6.2rem);line-height:.98;margin:22px 0 20px;max-width:14ch}
+  .hero p{max-width:44ch;font-size:1.05rem;color:rgba(244,238,230,.9);font-weight:300}
+  .hero-cta{display:flex;gap:16px;margin-top:38px;flex-wrap:wrap}
+  .btn.filled{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+  .btn.filled:hover{background:transparent;color:var(--cream)}
+  .scrollcue{position:absolute;right:32px;bottom:6vh;writing-mode:vertical-rl;
+    font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(244,238,230,.7)}
+
+  /* ---------- section base ---------- */
+  section{position:relative}
+  .band{padding:clamp(72px,11vw,140px) 0}
+  .center{text-align:center;max-width:720px;margin:0 auto}
+  .rule{width:44px;height:1px;background:var(--gold);margin:22px auto 0}
+
+  /* philosophy */
+  .philo h2{margin:18px 0 26px}
+  .philo p{font-size:clamp(1.05rem,1.7vw,1.35rem);color:var(--espresso);font-weight:300}
+
+  /* products */
+  .prod-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:52px;flex-wrap:wrap}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .card{background:var(--cream);border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column;transition:transform .4s ease}
+  .card:hover{transform:translateY(-6px)}
+  .card .ph{aspect-ratio:4/5;position:relative;overflow:hidden;background:var(--cream-2)}
+  .card .ph img{transition:transform .8s ease}
+  .card:hover .ph img{transform:scale(1.05)}
+  .card .accent{position:absolute;left:0;top:0;width:100%;height:5px;z-index:1}
+  .card-body{padding:26px 26px 30px}
+  .card .kind{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe)}
+  .card h3{font-family:var(--serif);font-size:1.7rem;font-weight:500;margin:8px 0 8px}
+  .card .desc{font-size:.92rem;color:var(--espresso);min-height:2.6em}
+  .card .meta{display:flex;align-items:center;justify-content:space-between;margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+  .card .vol{font-size:12px;letter-spacing:.1em;color:var(--taupe)}
+  .card .order{font-size:12px;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:2px}
+
+  /* styler (dark band) */
+  .styler{background:var(--espresso);color:var(--cream)}
+  .styler .eyebrow{color:var(--sand)}
+  .styler-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+  .styler h2{margin:18px 0 20px;color:var(--cream)}
+  .styler .lead{color:rgba(244,238,230,.82)}
+  .feats{list-style:none;margin:34px 0 40px;display:grid;gap:2px}
+  .feats li{display:flex;gap:18px;align-items:baseline;padding:16px 0;border-top:1px solid rgba(244,238,230,.16)}
+  .feats li:last-child{border-bottom:1px solid rgba(244,238,230,.16)}
+  .feats .n{font-family:var(--serif);font-size:1.1rem;color:var(--gold);min-width:2ch}
+  .feats .t{font-size:.98rem;letter-spacing:.02em}
+  .styler .btn:hover{background:var(--cream);color:var(--espresso);border-color:var(--cream)}
+  .styler-media{display:grid;grid-template-rows:1.4fr 1fr;gap:20px;height:min(78vh,680px)}
+  .styler-media .big{overflow:hidden}
+
+  /* studios */
+  .studios .prod-head{margin-bottom:44px}
+  .studio-feature{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:stretch;margin-bottom:48px}
+  .studio-feature .imgbox{aspect-ratio:4/3;overflow:hidden}
+  .studio-copy{display:flex;flex-direction:column;justify-content:center}
+  .studio-copy .badge{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+  .studio-copy h3{font-family:var(--serif);font-weight:500;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.08;margin-bottom:16px}
+  .studio-copy p{color:var(--espresso)}
+  .addr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .addr{background:var(--cream);padding:30px 28px}
+  .addr .num{font-family:var(--serif);font-size:1.6rem;color:var(--taupe)}
+  .addr h4{font-family:var(--serif);font-weight:500;font-size:1.3rem;margin:6px 0 10px}
+  .addr p{font-size:.9rem;color:var(--espresso)}
+  .addr .todo{color:var(--taupe);font-style:italic;opacity:.8}
+
+  /* founder */
+  .founder{background:var(--cream-2)}
+  .founder-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
+  .founder-imgs{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+  .founder-imgs .tall{aspect-ratio:3/4;overflow:hidden}
+  .founder-imgs .tall.offset{margin-top:44px}
+  .founder-copy h2{margin:16px 0 8px}
+  .founder-copy .role{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--taupe);margin-bottom:24px}
+  .founder-copy p{color:var(--espresso);margin-bottom:18px}
+  .sign{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--ink);margin-top:10px}
+
+  /* gallery — 3 columns, tiles into a clean 3x3 block */
+  .gal{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:230px;gap:14px;margin-top:52px}
+  .gal .cell{overflow:hidden}
+  .gal .cell img{transition:transform .9s ease}
+  .gal .cell:hover img{transform:scale(1.06)}
+  .gal .wide{grid-column:span 2}
+  .gal .tall2{grid-row:span 2}
+
+  /* faq */
+  .faq{background:var(--espresso);color:var(--cream)}
+  .faq .eyebrow{color:var(--sand)}
+  .faq-wrap{max-width:820px;margin:44px auto 0}
+  .faq details{border-top:1px solid rgba(244,238,230,.18)}
+  .faq details:last-child{border-bottom:1px solid rgba(244,238,230,.18)}
+  .faq summary{list-style:none;cursor:pointer;padding:26px 0;display:flex;justify-content:space-between;gap:24px;align-items:center;
+    font-family:var(--serif);font-size:1.35rem;font-weight:500}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary .plus{font-family:var(--sans);font-weight:300;font-size:1.6rem;transition:transform .3s;color:var(--gold)}
+  .faq details[open] summary .plus{transform:rotate(45deg)}
+  .faq .ans{padding:0 0 26px;color:rgba(244,238,230,.82);max-width:64ch}
+
+  /* contact / footer */
+  .contact{background:var(--ink);color:var(--cream);padding:clamp(80px,11vw,150px) 0 48px}
+  .contact .big{font-family:var(--serif);font-weight:500;font-size:clamp(2.4rem,7vw,5rem);line-height:1;letter-spacing:-.01em}
+  .contact-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:60px;margin:60px 0 70px;align-items:start}
+  .clist{display:flex;flex-direction:column;gap:2px}
+  .clist a,.cinfo p{padding:16px 0;border-top:1px solid rgba(244,238,230,.16);display:flex;justify-content:space-between;gap:20px;
+    font-size:.98rem;letter-spacing:.02em}
+  .clist a:last-child{border-bottom:1px solid rgba(244,238,230,.16)}
+  .clist a span:last-child{color:var(--sand);transition:transform .25s}
+  .clist a:hover span:last-child{transform:translateX(6px)}
+  .cinfo p{color:rgba(244,238,230,.85)}
+  .cinfo .k{color:var(--sand);letter-spacing:.16em;text-transform:uppercase;font-size:11px}
+  .cinfo .todo{font-style:italic;color:var(--taupe)}
+  .kaspi{margin-top:26px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--sand);
+    border:1px solid rgba(244,238,230,.22);border-radius:999px;padding:9px 18px;display:inline-block}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:34px;
+    border-top:1px solid rgba(244,238,230,.16);font-size:12px;letter-spacing:.1em;color:rgba(244,238,230,.6);flex-wrap:wrap}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:960px){
+    .styler-grid,.founder-grid,.studio-feature,.contact-grid{grid-template-columns:1fr;gap:40px}
+    .styler-media{height:auto;grid-template-rows:none}
+    .styler-media .big{aspect-ratio:4/3}
+    .founder-imgs .tall.offset{margin-top:0}
+    .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px}
+    .gal .wide,.gal .tall2{grid-column:auto;grid-row:auto}
+  }
+  @media(max-width:720px){
+    .wrap{padding:0 22px}
+    .grid3,.addr-grid{grid-template-columns:1fr}
+    .navlinks{
+      position:fixed;inset:76px 0 auto 0;background:var(--cream);color:var(--ink);
+      flex-direction:column;align-items:flex-start;gap:0;padding:8px 22px 22px;
+      transform:translateY(-140%);transition:transform .4s ease;box-shadow:0 20px 40px rgba(0,0,0,.1)
+    }
+    .navlinks a{width:100%;padding:16px 0;border-bottom:1px solid var(--line);font-size:14px}
+    .navlinks .btn,.navlinks .lang{margin-top:8px}
+    .menu-check:checked ~ .navlinks{transform:none}
+    .menu-toggle{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+    .menu-toggle span{width:24px;height:1.5px;background:currentColor;transition:.3s}
+    .menu-check:checked ~ .menu-toggle span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+    .menu-check:checked ~ .menu-toggle span:nth-child(2){opacity:0}
+    .menu-check:checked ~ .menu-toggle span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+    header.menu-open{background:var(--cream);color:var(--ink)}
+    .desk-cta{display:none}
+    .gal{grid-template-columns:1fr;grid-auto-rows:260px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="ESTET by Ashirov Azamat">
+      <span class="mono">Aa</span>
+      <span>
+        <span class="name">ESTET</span><br />
+        <span class="sub">by Ashirov Azamat</span>
+      </span>
+    </a>
+
+    <input type="checkbox" id="mtoggle" class="menu-check" aria-label="Открыть меню" />
+    <nav class="navlinks">
+      <a href="#products">Продукты</a>
+      <a href="#styler">Стайлер</a>
+      <a href="#studios">Студии</a>
+      <a href="#founder">О бренде</a>
+      <a href="#contact">Контакты</a>
+      <span class="lang"><b>RU</b> · EN</span>
+      <a class="btn" href="https://wa.me/TODO" target="_blank" rel="noopener">Записаться</a>
+    </nav>
+    <a class="btn desk-cta" href="https://wa.me/TODO" target="_blank" rel="noopener">Записаться</a>
+    <label class="menu-toggle" for="mtoggle" aria-hidden="true"><span></span><span></span><span></span></label>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="bg"><img src="/images/hero.jpg" alt="Модель укладывает волосы стайлером ESTET" fetchpriority="high" /></div>
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Уход за волосами · Бьюти-студии</span>
+    <h1>Искусство здоровых волос</h1>
+    <p>Премиальная линия ухода и профессиональные студии красоты ESTET by Ashirov Azamat.</p>
+    <div class="hero-cta">
+      <a class="btn filled" href="#products">Смотреть продукты</a>
+      <a class="btn" href="https://wa.me/TODO" target="_blank" rel="noopener">Записаться в студию</a>
+    </div>
+  </div>
+  <span class="scrollcue">Листайте вниз</span>
+</section>
+
+<!-- ================= PHILOSOPHY ================= -->
+<section class="band philo">
+  <div class="wrap center reveal">
+    <span class="eyebrow">Философия</span>
+    <h2 class="display">Тихая роскошь<br />в каждой детали</h2>
+    <p class="lead">ESTET — это премиальный уход, созданный на натуральных компонентах и внимании к деталям. От формулы шампуня до профессионального стайлера каждый продукт раскрывает естественную красоту ваших волос.</p>
+    <span class="rule"></span>
+  </div>
+</section>
+
+<!-- ================= PRODUCTS ================= -->
+<section class="band" id="products" style="background:var(--cream-2)">
+  <div class="wrap">
+    <div class="prod-head reveal">
+      <div>
+        <span class="eyebrow">Линия ухода</span>
+        <h2 class="display" style="margin-top:14px">Шампуни ESTET</h2>
+      </div>
+      <p class="lead" style="max-width:34ch">Профессиональные формулы 500&nbsp;мл для салонного ухода дома.</p>
+    </div>
+
+    <div class="grid3">
+      <!-- Coconut -->
+      <article class="card reveal">
+        <div class="ph"><span class="accent" style="background:#3F7D53"></span><img src="/images/product-coconut.jpg" alt="Шампунь ESTET Coconut Oil" loading="lazy" /></div>
+        <div class="card-body">
+          <span class="kind">Coconut Oil · Смягчающий</span>
+          <h3>Кокосовая эссенция</h3>
+          <p class="desc">Питание и мягкость для сухих и непослушных волос.</p>
+          <div class="meta">
+            <span class="vol">500 мл</span>
+            <a class="order" href="https://wa.me/TODO?text=Здравствуйте!%20Хочу%20заказать%20шампунь%20Coconut%20Oil" target="_blank" rel="noopener">Заказать</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Protein -->
+      <article class="card reveal">
+        <div class="ph"><span class="accent" style="background:#CBB89C"></span><img src="/images/product-coconut.jpg" alt="Шампунь ESTET Protein" loading="lazy" /></div>
+        <div class="card-body">
+          <span class="kind">Protein · Восстанавливающий</span>
+          <h3>Протеиновый уход</h3>
+          <p class="desc">Реструктуризация и сила для повреждённых волос.</p>
+          <div class="meta">
+            <span class="vol">500 мл</span>
+            <a class="order" href="https://wa.me/TODO?text=Здравствуйте!%20Хочу%20заказать%20шампунь%20Protein" target="_blank" rel="noopener">Заказать</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Ginger -->
+      <article class="card reveal">
+        <div class="ph"><span class="accent" style="background:#C79A3C"></span><img src="/images/product-coconut.jpg" alt="Шампунь ESTET Ginger Essence" loading="lazy" /></div>
+        <div class="card-body">
+          <span class="kind">Ginger Essence · Имбирный</span>
+          <h3>Имбирная эссенция</h3>
+          <p class="desc">Тонус кожи головы и здоровый рост волос.</p>
+          <div class="meta">
+            <span class="vol">500 мл</span>
+            <a class="order" href="https://wa.me/TODO?text=Здравствуйте!%20Хочу%20заказать%20шампунь%20Ginger%20Essence" target="_blank" rel="noopener">Заказать</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STYLER ================= -->
+<section class="band styler" id="styler">
+  <div class="wrap styler-grid">
+    <div class="reveal">
+      <span class="eyebrow">Профессиональный стайлер</span>
+      <h2 class="display">8-в-1.<br />Одна укладка — любой образ.</h2>
+      <p class="lead">Мультистайлер ESTET заменяет фен, брашинг и стайлер. Восемь сменных насадок для сушки, объёма и локонов — за минуты и без вреда для волос.</p>
+      <ul class="feats">
+        <li><span class="n">01</span><span class="t">Керамическое покрытие насадок</span></li>
+        <li><span class="n">02</span><span class="t">Интеллектуальный контроль нагрева</span></li>
+        <li><span class="n">03</span><span class="t">Двойной клик — холодный обдув для фиксации</span></li>
+        <li><span class="n">04</span><span class="t">Уникальный поток воздуха 35&nbsp;м/с</span></li>
+        <li><span class="n">05</span><span class="t">8 сменных насадок в комплекте</span></li>
+      </ul>
+      <a class="btn" href="https://wa.me/TODO?text=Здравствуйте!%20Интересует%20стайлер%20ESTET%208-в-1" target="_blank" rel="noopener">Заказать стайлер</a>
+    </div>
+    <div class="styler-media reveal">
+      <div class="big"><img src="/images/styler-use.jpg" alt="Укладка стайлером ESTET" loading="lazy" /></div>
+      <div class="big"><img src="/images/styler-box.jpg" alt="Набор стайлера ESTET 8-в-1" loading="lazy" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STUDIOS ================= -->
+<section class="band studios" id="studios">
+  <div class="wrap">
+    <div class="prod-head reveal">
+      <div>
+        <span class="eyebrow">Бьюти-студии</span>
+        <h2 class="display" style="margin-top:14px">Студии красоты ESTET</h2>
+      </div>
+      <p class="lead" style="max-width:34ch">Пространства, где премиальный уход встречается с профессиональным сервисом.</p>
+    </div>
+
+    <div class="studio-feature reveal">
+      <div class="imgbox"><img src="/images/studio-opening.jpg" alt="Открытие третьей студии ESTET" loading="lazy" /></div>
+      <div class="studio-copy">
+        <span class="badge"><span class="mono" style="width:34px;height:34px;font-size:15px">3</span> Февраль 2025</span>
+        <h3>Открыли третью студию</h3>
+        <p>Третье пространство ESTET — новый уровень сервиса и заботы о ваших волосах. Записывайтесь на укладку, уход и консультацию мастера.</p>
+      </div>
+    </div>
+
+    <div class="addr-grid reveal">
+      <div class="addr">
+        <span class="num">01</span>
+        <h4>Первая студия</h4>
+        <p class="todo">TODO: адрес · часы работы</p>
+      </div>
+      <div class="addr">
+        <span class="num">02</span>
+        <h4>Вторая студия</h4>
+        <p class="todo">TODO: адрес · часы работы</p>
+      </div>
+      <div class="addr">
+        <span class="num">03</span>
+        <h4>Третья студия</h4>
+        <p class="todo">TODO: адрес · часы работы</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOUNDER ================= -->
+<section class="band founder" id="founder">
+  <div class="wrap founder-grid">
+    <div class="founder-imgs reveal">
+      <div class="tall"><img src="/images/founder-1.jpg" alt="Ashirov Azamat, основатель ESTET" loading="lazy" /></div>
+      <div class="tall offset"><img src="/images/founder-2.jpg" alt="Ashirov Azamat" loading="lazy" /></div>
+    </div>
+    <div class="founder-copy reveal">
+      <span class="eyebrow">Основатель</span>
+      <h2 class="display">Ashirov Azamat</h2>
+      <div class="role">Основатель бренда ESTET</div>
+      <p>ESTET родился из убеждения, что уход за волосами должен быть искусством — точным, эстетичным и premium в каждой детали.</p>
+      <p>От авторских формул до собственных бьюти-студий — бренд создаёт единый мир красоты, где каждый продукт и каждый визит работают на здоровье и сияние ваших волос.</p>
+      <div class="sign">Ashirov Azamat</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="band" style="background:var(--cream-2)">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="eyebrow">Моменты</span>
+      <h2 class="display" style="margin-top:14px">Мир ESTET</h2>
+    </div>
+    <div class="gal reveal">
+      <div class="cell tall2"><img src="/images/event.jpg" alt="Вечер ESTET" loading="lazy" /></div>
+      <div class="cell"><img src="/images/product-coconut.jpg" alt="Продукт ESTET" loading="lazy" /></div>
+      <div class="cell"><img src="/images/founder-casual.jpg" alt="Основатель ESTET" loading="lazy" /></div>
+      <div class="cell wide"><img src="/images/styler-box.jpg" alt="Набор стайлера" loading="lazy" /></div>
+      <div class="cell"><img src="/images/styler-use.jpg" alt="Укладка" loading="lazy" /></div>
+      <div class="cell wide"><img src="/images/studio-opening.jpg" alt="Открытие студии" loading="lazy" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="band faq">
+  <div class="wrap center reveal">
+    <span class="eyebrow">Вопросы</span>
+    <h2 class="display" style="margin-top:14px;color:var(--cream)">Частые вопросы</h2>
+  </div>
+  <div class="wrap">
+    <div class="faq-wrap reveal">
+      <details open>
+        <summary>Как заказать продукты? <span class="plus">+</span></summary>
+        <div class="ans">Напишите нам в WhatsApp — менеджер подскажет наличие, оформит заказ и организует доставку.</div>
+      </details>
+      <details>
+        <summary>Есть ли рассрочка Kaspi Red? <span class="plus">+</span></summary>
+        <div class="ans">Да, доступна оплата в рассрочку через Kaspi Red. Уточните условия у менеджера.</div>
+      </details>
+      <details>
+        <summary>Доставляете по Казахстану? <span class="plus">+</span></summary>
+        <div class="ans">Да, отправляем по всему Казахстану. Сроки и стоимость зависят от города — уточните в WhatsApp.</div>
+      </details>
+      <details>
+        <summary>Как записаться в студию? <span class="plus">+</span></summary>
+        <div class="ans">Через WhatsApp или Instagram. Выберите удобную студию и время — мы подтвердим запись.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT / FOOTER ================= -->
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow" style="color:var(--sand)">На связи</span>
+      <div class="big" style="margin-top:18px">Начнём заботу<br />о ваших волосах</div>
+    </div>
+
+    <div class="contact-grid">
+      <div class="clist reveal">
+        <a href="https://wa.me/TODO" target="_blank" rel="noopener"><span>WhatsApp</span><span>Написать →</span></a>
+        <a href="https://instagram.com/TODO" target="_blank" rel="noopener"><span>Instagram</span><span>@estet_premium →</span></a>
+        <a href="https://2gis.kz/TODO" target="_blank" rel="noopener"><span>2ГИС</span><span>Построить маршрут →</span></a>
+      </div>
+      <div class="cinfo reveal">
+        <p><span class="k">Студии</span><span class="todo">TODO: адреса</span></p>
+        <p><span class="k">Часы</span><span class="todo">TODO: 10:00–20:00</span></p>
+        <p><span class="k">Телефон</span><span class="todo">TODO: +7 ...</span></p>
+        <span class="kaspi">Kaspi Red · рассрочка</span>
+      </div>
+    </div>
+
+    <div class="foot">
+      <span>© 2026 ESTET by Ashirov Azamat. Все права защищены.</span>
+      <span class="brand" style="gap:10px"><span class="mono" style="width:32px;height:32px;font-size:14px">Aa</span><span class="name" style="font-size:1.1rem;letter-spacing:.16em">ESTET</span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var hdr = document.getElementById('hdr');
+  var mcheck = document.getElementById('mtoggle');
+
+  // Sticky nav solidify on scroll
+  function onScroll(){ hdr.classList.toggle('solid', window.scrollY > 40); }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  // Mobile menu: force solid look while open
+  mcheck.addEventListener('change', function(){ hdr.classList.toggle('menu-open', mcheck.checked); });
+
+  // Close mobile menu after tapping a link
+  document.querySelectorAll('.navlinks a').forEach(function(a){
+    a.addEventListener('click', function(){ mcheck.checked = false; hdr.classList.remove('menu-open'); });
+  });
+
+  // Scroll reveal
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.12, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
