@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLocale } from "@/lib/locale";
 import { waLink, type StylerFeature } from "@/lib/content";
 import Reveal from "@/components/Reveal";
@@ -58,18 +59,30 @@ export default function Styler() {
               </p>
             </Reveal>
 
-            {/* Типографическая витрина вместо флэтлея коробки — заменить фото */}
             <Reveal delay={0.12}>
-              <div className="mt-12 hidden rounded-sm border border-ivory/10 bg-mocha/40 p-10 lg:block">
-                <p className="font-display text-7xl italic leading-none text-gold">8</p>
-                <p className="mt-2 text-xs uppercase tracking-[0.25em] text-sand">
-                  {t.styler.features[4].title}
-                </p>
-                <div className="mt-8 h-px bg-ivory/10" aria-hidden="true" />
-                <p className="mt-6 text-sm leading-relaxed text-sand/80">
-                  {t.styler.attachmentsNote}
-                </p>
+              <div className="mt-12 grid grid-cols-[1.15fr_1fr] gap-3">
+                <div className="relative aspect-[3/4] overflow-hidden rounded-sm">
+                  <Image
+                    src={t.styler.inUseImage.src}
+                    alt={t.styler.inUseImage.alt}
+                    fill
+                    sizes="(max-width: 1024px) 60vw, 30vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="relative overflow-hidden rounded-sm">
+                  <Image
+                    src={t.styler.kitImage.src}
+                    alt={t.styler.kitImage.alt}
+                    fill
+                    sizes="(max-width: 1024px) 40vw, 25vw"
+                    className="object-cover"
+                  />
+                </div>
               </div>
+              <p className="mt-4 max-w-lg text-sm leading-relaxed text-sand/80">
+                {t.styler.attachmentsNote}
+              </p>
             </Reveal>
           </div>
 

@@ -9,9 +9,9 @@ export type Locale = "ru" | "en";
 /** TODO: реальный номер WhatsApp в международном формате, напр. "77001234567" */
 export const WHATSAPP_NUMBER = "TODO";
 
-/** TODO: реальные ссылки */
 export const LINKS = {
-  instagram: "https://instagram.com/TODO",
+  instagram: "https://instagram.com/estet_premium",
+  /** TODO: реальная ссылка на профиль 2ГИС */
   twoGis: "https://2gis.kz/TODO",
   taplink: "https://taplink.cc/estet_premium",
 };
@@ -47,12 +47,23 @@ export interface Studio {
   note?: string;
 }
 
+export interface Photo {
+  src: string;
+  alt: string;
+}
+
+export interface EducationGroup {
+  title: string;
+  items: string[];
+}
+
 export interface Dictionary {
   meta: { title: string; description: string };
   nav: {
     products: string;
     styler: string;
     studios: string;
+    education: string;
     about: string;
     contacts: string;
     cta: string;
@@ -84,6 +95,8 @@ export interface Dictionary {
     subtitle: string;
     features: StylerFeature[];
     attachmentsNote: string;
+    inUseImage: Photo;
+    kitImage: Photo;
     cta: string;
     waMessage: string;
   };
@@ -93,22 +106,36 @@ export interface Dictionary {
     milestone: string;
     milestoneDate: string;
     text: string[];
+    openingImage: Photo;
     items: Studio[];
     cta: string;
     waMessage: string;
+  };
+  education: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    intro: string;
+    groups: EducationGroup[];
+    after: { title: string; lead: string; items: string[] };
+    closing: { title: string; text: string[] };
+    cta: string;
+    waMessage: string;
+    photos: Photo[];
   };
   founder: {
     eyebrow: string;
     title: string;
     name: string;
     role: string;
+    portrait: Photo;
     story: string[];
     quote: string;
   };
   gallery: {
     eyebrow: string;
     title: string;
-    moments: { label: string; sub: string }[];
+    moments: { label: string; sub: string; image: Photo }[];
   };
   club: {
     eyebrow: string;
@@ -146,6 +173,7 @@ export const content: Record<Locale, Dictionary> = {
       products: "Продукты",
       styler: "Стайлер",
       studios: "Студии",
+      education: "Обучение",
       about: "О бренде",
       contacts: "Контакты",
       cta: "Записаться",
@@ -197,7 +225,6 @@ export const content: Record<Locale, Dictionary> = {
           accent: "#8A6E5E",
           accentSoft: "#F1EAE1",
           waMessage: "Здравствуйте! Хочу заказать шампунь ESTET Protein.",
-          image: "/images/product-protein.jpg",
         },
         {
           id: "ginger",
@@ -209,7 +236,6 @@ export const content: Record<Locale, Dictionary> = {
           accent: "#A9853F",
           accentSoft: "#F2ECDD",
           waMessage: "Здравствуйте! Хочу заказать шампунь ESTET Ginger Essence.",
-          image: "/images/product-ginger.jpg",
         },
       ],
     },
@@ -247,6 +273,14 @@ export const content: Record<Locale, Dictionary> = {
       ],
       attachmentsNote:
         "В комплекте: диффузор, круглые щётки, овальная щётка, концентратор и цилиндрические насадки для локонов.",
+      inUseImage: {
+        src: "/images/styler-in-use.jpg",
+        alt: "Девушка укладывает волосы стайлером ESTET 8-в-1",
+      },
+      kitImage: {
+        src: "/images/styler-kit.jpg",
+        alt: "Комплект стайлера ESTET 8-в-1 и шампуни Protein и Ginger Essence",
+      },
       cta: "Узнать цену и заказать",
       waMessage: "Здравствуйте! Интересует профессиональный стайлер ESTET 8-в-1.",
     },
@@ -259,6 +293,10 @@ export const content: Record<Locale, Dictionary> = {
         "Студии ESTET — это не просто услуги, а ритуал заботы: внимательные мастера, продуманный интерьер и атмосфера, в которую хочется возвращаться.",
         "Седьмого февраля 2025 года мы открыли третью студию — шаг, который стал возможен благодаря доверию наших гостей.",
       ],
+      openingImage: {
+        src: "/images/studio-opening.jpg",
+        alt: "Открытие третьей бьюти-студии ESTET, 7 февраля 2025 года",
+      },
       items: [
         {
           name: "ESTET · Студия №1",
@@ -280,11 +318,107 @@ export const content: Record<Locale, Dictionary> = {
       cta: "Записаться в студию",
       waMessage: "Здравствуйте! Хочу записаться в бьюти-студию ESTET.",
     },
+    education: {
+      eyebrow: "Обучение",
+      title: "Обучение Estet by Ashirov",
+      subtitle:
+        "Освойте востребованную профессию и начните зарабатывать на любимом деле",
+      intro:
+        "Обучение в Estet by Ashirov — это не просто курс. Это система подготовки специалистов, где главное — результат, практика и уверенный старт в профессии. Мы обучаем с нуля и помогаем мастерам повысить квалификацию, освоить современные техники окрашивания и выйти на новый уровень дохода.",
+      groups: [
+        {
+          title: "Для кого подходит обучение",
+          items: [
+            "Для новичков без опыта.",
+            "Для действующих мастеров.",
+            "Для колористов, которые хотят повысить квалификацию.",
+            "Для тех, кто мечтает работать в премиальном сегменте.",
+          ],
+        },
+        {
+          title: "Чему вы научитесь",
+          items: [
+            "Основы колористики.",
+            "Диагностика волос.",
+            "Работа с красителями.",
+            "Осветление без критического повреждения волос.",
+            "Тонирование.",
+            "Исправление неудачных окрашиваний.",
+            "Авторские техники окрашивания Estet by Ashirov.",
+            "Консультация клиента.",
+            "Фото- и видеоконтент для социальных сетей.",
+            "Построение личного бренда мастера.",
+          ],
+        },
+        {
+          title: "Формат обучения",
+          items: [
+            "Теория.",
+            "Демонстрация преподавателя.",
+            "Практика на моделях.",
+            "Работа с реальными клиентами.",
+            "Индивидуальная обратная связь.",
+          ],
+        },
+        {
+          title: "Что получает ученик",
+          items: [
+            "Авторские методические материалы.",
+            "Практические навыки.",
+            "Поддержку после окончания обучения.",
+            "Сертификат о прохождении курса.",
+            "Возможность трудоустройства в сеть Estet by Ashirov для лучших выпускников.",
+          ],
+        },
+        {
+          title: "Почему выбирают нас",
+          items: [
+            "Обучение проводят практикующие специалисты.",
+            "Максимум практики и минимум «воды».",
+            "Современные техники и реальные кейсы.",
+            "Атмосфера поддержки и профессионального роста.",
+            "Акцент на качестве работы и сервисе.",
+          ],
+        },
+      ],
+      after: {
+        title: "После обучения",
+        lead: "Наши выпускники могут:",
+        items: [
+          "работать в салонах красоты;",
+          "развивать личный бренд;",
+          "открыть собственную студию;",
+          "продолжить обучение и расти как эксперты;",
+          "пройти отбор в команду Estet by Ashirov.",
+        ],
+      },
+      closing: {
+        title: "Сделайте первый шаг уже сегодня",
+        text: [
+          "Если вы хотите освоить востребованную профессию, повысить свой уровень или построить успешную карьеру в индустрии красоты — оставьте заявку на обучение.",
+          "Estet by Ashirov — место, где знания превращаются в профессию, а талант — в успешную карьеру.",
+        ],
+      },
+      cta: "Оставить заявку на обучение",
+      waMessage: "Здравствуйте! Хочу узнать про обучение Estet by Ashirov.",
+      photos: [
+        { src: "/images/edu-1.jpg", alt: "Выпускница курса Estet by Ashirov с сертификатом и букетом" },
+        { src: "/images/edu-2.jpg", alt: "Аширов Азамат с выпускницами курса, вручение сертификатов" },
+        { src: "/images/edu-3.jpg", alt: "Выпускницы обучения Estet by Ashirov с сертификатами" },
+        { src: "/images/edu-4.jpg", alt: "Вручение сертификатов выпускницам курса Estet by Ashirov" },
+        { src: "/images/edu-5.jpg", alt: "Выпускной группы обучения Estet by Ashirov, сертификаты и цветы" },
+        { src: "/images/edu-6.jpg", alt: "Аширов Азамат и выпускницы курса с сертификатами и букетами" },
+      ],
+    },
     founder: {
       eyebrow: "Основатель",
       title: "Человек за брендом",
       name: "Аширов Азамат",
       role: "Основатель ESTET",
+      portrait: {
+        src: "/images/founder-main.jpg",
+        alt: "Аширов Азамат, основатель ESTET, портрет в белом костюме",
+      },
       story: [
         "ESTET начался с простого убеждения: премиальный уход — это не про цену, а про отношение. К клиенту, к продукту, к каждой детали.",
         "Сегодня ESTET — это собственная линия косметики для волос, профессиональный инструмент и три бьюти-студии. Но суть не изменилась: мы делаем то, чем гордимся сами.",
@@ -295,12 +429,36 @@ export const content: Record<Locale, Dictionary> = {
       eyebrow: "Моменты",
       title: "Жизнь ESTET",
       moments: [
-        { label: "Открытие третьей студии", sub: "07.02.2025" },
-        { label: "Гости и команда", sub: "Вечер открытия" },
-        { label: "Атмосфера студии", sub: "Детали интерьера" },
-        { label: "Backstage", sub: "Работа мастеров" },
-        { label: "Продукция ESTET", sub: "Линия ухода" },
-        { label: "События бренда", sub: "Моменты вместе" },
+        {
+          label: "Вечер открытия",
+          sub: "Гости ESTET",
+          image: { src: "/images/event-guest.jpg", alt: "Гостья вечера открытия студии Estet by Ashirov" },
+        },
+        {
+          label: "Аширов Азамат",
+          sub: "Основатель",
+          image: { src: "/images/founder-2.jpg", alt: "Аширов Азамат в белом костюме" },
+        },
+        {
+          label: "Продукция ESTET",
+          sub: "Линия ухода",
+          image: { src: "/images/product-coconut.jpg", alt: "Шампунь ESTET Coconut Oil в руках" },
+        },
+        {
+          label: "Вне студии",
+          sub: "Моменты бренда",
+          image: { src: "/images/founder-sunglasses.jpg", alt: "Аширов Азамат в солнцезащитных очках" },
+        },
+        {
+          label: "Портрет",
+          sub: "Estet by Ashirov",
+          image: { src: "/images/founder-3.jpg", alt: "Аширов Азамат, портрет в белом костюме" },
+        },
+        {
+          label: "Простые моменты",
+          sub: "Основатель",
+          image: { src: "/images/founder-casual.jpg", alt: "Аширов Азамат в сером свитере" },
+        },
       ],
     },
     club: {
@@ -351,6 +509,7 @@ export const content: Record<Locale, Dictionary> = {
       products: "Products",
       styler: "Styler",
       studios: "Studios",
+      education: "Education",
       about: "About",
       contacts: "Contacts",
       cta: "Book now",
@@ -400,7 +559,6 @@ export const content: Record<Locale, Dictionary> = {
           accent: "#8A6E5E",
           accentSoft: "#F1EAE1",
           waMessage: "Hello! I'd like to order ESTET Protein shampoo.",
-          image: "/images/product-protein.jpg",
         },
         {
           id: "ginger",
@@ -411,7 +569,6 @@ export const content: Record<Locale, Dictionary> = {
           accent: "#A9853F",
           accentSoft: "#F2ECDD",
           waMessage: "Hello! I'd like to order ESTET Ginger Essence shampoo.",
-          image: "/images/product-ginger.jpg",
         },
       ],
     },
@@ -449,6 +606,14 @@ export const content: Record<Locale, Dictionary> = {
       ],
       attachmentsNote:
         "Included: diffuser, round brushes, oval brush, concentrator and curling barrels.",
+      inUseImage: {
+        src: "/images/styler-in-use.jpg",
+        alt: "Woman styling her hair with the ESTET 8-in-1 styler",
+      },
+      kitImage: {
+        src: "/images/styler-kit.jpg",
+        alt: "ESTET 8-in-1 styler kit with Protein and Ginger Essence shampoos",
+      },
       cta: "Get price & order",
       waMessage: "Hello! I'm interested in the ESTET 8-in-1 professional styler.",
     },
@@ -461,6 +626,10 @@ export const content: Record<Locale, Dictionary> = {
         "ESTET studios are a ritual of care: attentive masters, refined interiors and an atmosphere you want to return to.",
         "On February 7, 2025 we opened our third studio — made possible by the trust of our guests.",
       ],
+      openingImage: {
+        src: "/images/studio-opening.jpg",
+        alt: "Opening of the third ESTET beauty studio, February 7, 2025",
+      },
       items: [
         { name: "ESTET · Studio 1", address: "TODO: address", hours: "TODO: hours" },
         { name: "ESTET · Studio 2", address: "TODO: address", hours: "TODO: hours" },
@@ -474,11 +643,106 @@ export const content: Record<Locale, Dictionary> = {
       cta: "Book a visit",
       waMessage: "Hello! I'd like to book a visit to ESTET beauty studio.",
     },
+    education: {
+      eyebrow: "Education",
+      title: "Estet by Ashirov Education",
+      subtitle: "Master an in-demand profession and start earning doing what you love",
+      intro:
+        "Education at Estet by Ashirov is more than a course. It is a system for training specialists where results, practice and a confident start in the profession come first. We teach from scratch and help working masters raise their qualification, master modern coloring techniques and reach a new level of income.",
+      groups: [
+        {
+          title: "Who this course is for",
+          items: [
+            "Beginners with no experience.",
+            "Working masters.",
+            "Colorists who want to raise their qualification.",
+            "Those who dream of working in the premium segment.",
+          ],
+        },
+        {
+          title: "What you will learn",
+          items: [
+            "Fundamentals of color theory.",
+            "Hair diagnostics.",
+            "Working with dyes.",
+            "Lightening without critical hair damage.",
+            "Toning.",
+            "Correcting failed color jobs.",
+            "Signature Estet by Ashirov coloring techniques.",
+            "Client consultation.",
+            "Photo and video content for social media.",
+            "Building a master's personal brand.",
+          ],
+        },
+        {
+          title: "Course format",
+          items: [
+            "Theory.",
+            "Instructor demonstration.",
+            "Practice on models.",
+            "Work with real clients.",
+            "Individual feedback.",
+          ],
+        },
+        {
+          title: "What students receive",
+          items: [
+            "Original teaching materials.",
+            "Practical skills.",
+            "Support after graduation.",
+            "A course completion certificate.",
+            "A chance for the best graduates to join the Estet by Ashirov network.",
+          ],
+        },
+        {
+          title: "Why choose us",
+          items: [
+            "Taught by practicing specialists.",
+            "Maximum practice, minimum filler.",
+            "Modern techniques and real cases.",
+            "An atmosphere of support and professional growth.",
+            "A focus on quality of work and service.",
+          ],
+        },
+      ],
+      after: {
+        title: "After the course",
+        lead: "Our graduates can:",
+        items: [
+          "work in beauty salons;",
+          "grow a personal brand;",
+          "open their own studio;",
+          "continue studying and grow as experts;",
+          "apply to join the Estet by Ashirov team.",
+        ],
+      },
+      closing: {
+        title: "Take the first step today",
+        text: [
+          "If you want to master an in-demand profession, raise your level or build a successful career in the beauty industry — apply for the course.",
+          "Estet by Ashirov is a place where knowledge becomes a profession, and talent becomes a successful career.",
+        ],
+      },
+      cta: "Apply for the course",
+      waMessage: "Hello! I'd like to learn about Estet by Ashirov education.",
+      photos: [
+        { src: "/images/edu-1.jpg", alt: "Estet by Ashirov graduate with a certificate and bouquet" },
+        { src: "/images/edu-2.jpg", alt: "Ashirov Azamat with course graduates receiving certificates" },
+        { src: "/images/edu-3.jpg", alt: "Estet by Ashirov graduates with certificates" },
+        { src: "/images/edu-4.jpg", alt: "Certificate ceremony for Estet by Ashirov graduates" },
+        { src: "/images/edu-5.jpg", alt: "Graduation of an Estet by Ashirov class, certificates and flowers" },
+        { src: "/images/edu-6.jpg", alt: "Ashirov Azamat and graduates with certificates and bouquets" },
+      ],
+    },
     founder: {
       eyebrow: "Founder",
       title: "The person behind the brand",
       name: "Ashirov Azamat",
       role: "Founder of ESTET",
+      portrait: {
+        src: "/images/founder-main.jpg",
+        alt: "Ashirov Azamat, founder of ESTET, portrait in a white suit",
+      },
       story: [
         "ESTET began with a simple belief: premium care is not about price — it's about attitude. To the client, the product, every detail.",
         "Today ESTET is its own hair-care line, a professional tool and three beauty studios. The essence hasn't changed: we make what we are proud of.",
@@ -489,12 +753,36 @@ export const content: Record<Locale, Dictionary> = {
       eyebrow: "Moments",
       title: "Life of ESTET",
       moments: [
-        { label: "Third studio opening", sub: "07.02.2025" },
-        { label: "Guests & team", sub: "Opening night" },
-        { label: "Studio atmosphere", sub: "Interior details" },
-        { label: "Backstage", sub: "Masters at work" },
-        { label: "ESTET products", sub: "Care line" },
-        { label: "Brand events", sub: "Moments together" },
+        {
+          label: "Opening night",
+          sub: "ESTET guests",
+          image: { src: "/images/event-guest.jpg", alt: "Guest at the Estet by Ashirov studio opening night" },
+        },
+        {
+          label: "Ashirov Azamat",
+          sub: "Founder",
+          image: { src: "/images/founder-2.jpg", alt: "Ashirov Azamat in a white suit" },
+        },
+        {
+          label: "ESTET products",
+          sub: "Care line",
+          image: { src: "/images/product-coconut.jpg", alt: "ESTET Coconut Oil shampoo held in hands" },
+        },
+        {
+          label: "Off duty",
+          sub: "Brand moments",
+          image: { src: "/images/founder-sunglasses.jpg", alt: "Ashirov Azamat in sunglasses" },
+        },
+        {
+          label: "Portrait",
+          sub: "Estet by Ashirov",
+          image: { src: "/images/founder-3.jpg", alt: "Ashirov Azamat, portrait in a white suit" },
+        },
+        {
+          label: "Simple moments",
+          sub: "Founder",
+          image: { src: "/images/founder-casual.jpg", alt: "Ashirov Azamat in a grey sweater" },
+        },
       ],
     },
     club: {

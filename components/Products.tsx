@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLocale } from "@/lib/locale";
 import { waLink } from "@/lib/content";
 import Reveal from "@/components/Reveal";
@@ -27,28 +28,39 @@ export default function Products() {
           {t.products.items.map((product, i) => (
             <Reveal key={product.id} delay={i * 0.08}>
               <article className="group flex h-full flex-col overflow-hidden rounded-sm bg-ivory shadow-[0_1px_0_0_rgba(58,47,42,0.06)] transition-shadow duration-300 hover:shadow-[0_20px_50px_-30px_rgba(26,21,18,0.45)]">
-                {/* Типографический «флакон» — заменяется фото из public/images */}
                 <div
-                  className="relative flex aspect-[4/5] items-center justify-center"
+                  className="relative flex aspect-[4/5] items-center justify-center overflow-hidden"
                   style={{ backgroundColor: product.accentSoft }}
                 >
-                  <div
-                    className="flex h-3/5 w-1/3 flex-col items-center justify-center rounded-t-full px-2 text-center transition-transform duration-500 group-hover:-translate-y-1.5"
-                    style={{ backgroundColor: product.accent }}
-                  >
-                    <span className="font-display text-[11px] tracking-[0.3em] text-ivory/90">
-                      ESTET
-                    </span>
-                    <span className="mt-1 text-[8px] uppercase tracking-[0.18em] text-ivory/70">
-                      {product.name}
-                    </span>
-                  </div>
-                  <span
-                    className="absolute bottom-4 right-4 text-[10px] uppercase tracking-[0.2em]"
-                    style={{ color: product.accent }}
-                  >
-                    {product.volume}
-                  </span>
+                  {product.image ? (
+                    <Image
+                      src={product.image}
+                      alt={`Шампунь ESTET ${product.name}, ${product.volume}`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                  ) : (
+                    <>
+                      <div
+                        className="flex h-3/5 w-1/3 flex-col items-center justify-center rounded-t-full px-2 text-center transition-transform duration-500 group-hover:-translate-y-1.5"
+                        style={{ backgroundColor: product.accent }}
+                      >
+                        <span className="font-display text-[11px] tracking-[0.3em] text-ivory/90">
+                          ESTET
+                        </span>
+                        <span className="mt-1 text-[8px] uppercase tracking-[0.18em] text-ivory/70">
+                          {product.name}
+                        </span>
+                      </div>
+                      <span
+                        className="absolute bottom-4 right-4 text-[10px] uppercase tracking-[0.2em]"
+                        style={{ color: product.accent }}
+                      >
+                        {product.volume}
+                      </span>
+                    </>
+                  )}
                 </div>
 
                 <div className="flex flex-1 flex-col p-6">

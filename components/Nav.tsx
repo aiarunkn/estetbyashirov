@@ -20,6 +20,7 @@ export default function Nav() {
     { href: "#products", label: t.nav.products },
     { href: "#styler", label: t.nav.styler },
     { href: "#studios", label: t.nav.studios },
+    { href: "#education", label: t.nav.education },
     { href: "#founder", label: t.nav.about },
     { href: "#contacts", label: t.nav.contacts },
   ];

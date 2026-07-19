@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLocale } from "@/lib/locale";
 import { waLink } from "@/lib/content";
 import Reveal from "@/components/Reveal";
@@ -43,6 +44,17 @@ export default function Studios() {
           </Reveal>
 
           <div className="flex flex-col justify-center gap-4">
+            <Reveal>
+              <div className="relative aspect-[16/10] overflow-hidden rounded-sm">
+                <Image
+                  src={t.studios.openingImage.src}
+                  alt={t.studios.openingImage.alt}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+            </Reveal>
             {t.studios.items.map((studio, i) => (
               <Reveal key={studio.name} delay={i * 0.08}>
                 <address className="flex items-baseline justify-between gap-6 rounded-sm border border-espresso/10 bg-cream px-6 py-5 not-italic">

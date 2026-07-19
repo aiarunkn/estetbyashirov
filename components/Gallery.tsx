@@ -1,18 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { useLocale } from "@/lib/locale";
 import Reveal from "@/components/Reveal";
 import Eyebrow from "@/components/Eyebrow";
-
-/* Тональности плиток; фото событий подключаются на их место через next/image */
-const tileTones = [
-  "bg-espresso text-ivory",
-  "bg-sand text-espresso",
-  "bg-taupe text-ivory",
-  "bg-mocha text-ivory",
-  "bg-cream text-espresso",
-  "bg-ink text-ivory",
-];
 
 export default function Gallery() {
   const { t } = useLocale();
@@ -31,19 +22,24 @@ export default function Gallery() {
           {t.gallery.moments.map((moment, i) => (
             <Reveal key={moment.label} delay={(i % 3) * 0.06}>
               <figure
-                className={`group relative flex overflow-hidden rounded-sm ${tileTones[i % tileTones.length]} ${
+                className={`group relative flex overflow-hidden rounded-sm bg-espresso text-ivory ${
                   i % 3 === 1 ? "aspect-[3/4]" : "aspect-square"
                 }`}
               >
-                <span
+                <Image
+                  src={moment.image.src}
+                  alt={moment.image.alt}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div
                   aria-hidden="true"
-                  className="absolute inset-0 flex items-center justify-center font-display text-8xl italic opacity-[0.07] transition-transform duration-700 group-hover:scale-110"
-                >
-                  E
-                </span>
+                  className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/80 to-transparent"
+                />
                 <figcaption className="relative mt-auto p-5">
                   <p className="font-display text-lg leading-tight">{moment.label}</p>
-                  <p className="mt-1 text-[10px] uppercase tracking-[0.2em] opacity-60">
+                  <p className="mt-1 text-[10px] uppercase tracking-[0.2em] opacity-70">
                     {moment.sub}
                   </p>
                 </figcaption>
