@@ -69,7 +69,6 @@ export interface Dictionary {
     education: string;
     about: string;
     contacts: string;
-    cta: string;
   };
   hero: {
     eyebrow: string;
@@ -175,7 +174,6 @@ export const content: Record<Locale, Dictionary> = {
       education: "Обучение",
       about: "О бренде",
       contacts: "Контакты",
-      cta: "Записаться",
     },
     hero: {
       eyebrow: "Premium Hair Care · Kazakhstan",
@@ -508,7 +506,6 @@ export const content: Record<Locale, Dictionary> = {
       education: "Оқыту",
       about: "Бренд туралы",
       contacts: "Байланыс",
-      cta: "Жазылу",
     },
     hero: {
       eyebrow: "Premium Hair Care · Kazakhstan",

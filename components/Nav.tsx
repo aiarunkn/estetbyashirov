@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useLocale } from "@/lib/locale";
-import { waLink } from "@/lib/content";
 
 export default function Nav() {
   const { t, setLocale } = useLocale();
@@ -17,11 +16,11 @@ export default function Nav() {
   }, []);
 
   const links = [
+    { href: "#founder", label: t.nav.about },
     { href: "#products", label: t.nav.products },
     { href: "#styler", label: t.nav.styler },
     { href: "#studios", label: t.nav.studios },
     { href: "#education", label: t.nav.education },
-    { href: "#founder", label: t.nav.about },
     { href: "#contacts", label: t.nav.contacts },
   ];
 
@@ -81,15 +80,6 @@ export default function Nav() {
             {t.langToggle.label}
           </button>
 
-          <a
-            href={waLink(t.hero.waMessage)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden rounded-full border border-gold px-5 py-2 text-sm text-gold transition-colors hover:bg-gold hover:text-ink sm:inline-block"
-          >
-            {t.nav.cta}
-          </a>
-
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -124,16 +114,6 @@ export default function Nav() {
                 </a>
               </li>
             ))}
-            <li>
-              <a
-                href={waLink(t.hero.waMessage)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 inline-block rounded-full border border-gold px-6 py-2.5 text-sm text-gold"
-              >
-                {t.nav.cta}
-              </a>
-            </li>
           </ul>
         </div>
       )}
