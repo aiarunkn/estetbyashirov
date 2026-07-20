@@ -7,7 +7,7 @@ import Studios from "@/components/Studios";
 import Education from "@/components/Education";
 import Founder from "@/components/Founder";
 import Gallery from "@/components/Gallery";
-import Club from "@/components/Club";
+import Standards from "@/components/Standards";
 import Contacts from "@/components/Contacts";
 
 export default function Home() {
@@ -23,7 +23,7 @@ export default function Home() {
         <Education />
         <Founder />
         <Gallery />
-        <Club />
+        <Standards />
       </main>
       <Contacts />
     </>
