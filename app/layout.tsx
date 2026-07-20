@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import { LocaleProvider } from "@/lib/locale";
 import { content } from "@/lib/content";
+import ScrollThread from "@/components/ScrollThread";
+import HangingContact from "@/components/HangingContact";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -29,7 +31,11 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`${cormorant.variable} ${inter.variable}`}>
       <body>
-        <LocaleProvider>{children}</LocaleProvider>
+        <LocaleProvider>
+          <ScrollThread />
+          {children}
+          <HangingContact />
+        </LocaleProvider>
       </body>
     </html>
   );

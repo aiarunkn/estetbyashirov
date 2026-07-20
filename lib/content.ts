@@ -158,6 +158,7 @@ export interface Dictionary {
     rights: string;
   };
   langToggle: { label: string; switchTo: Locale };
+  floatingContact: { label: string };
 }
 
 export const content: Record<Locale, Dictionary> = {
@@ -491,6 +492,7 @@ export const content: Record<Locale, Dictionary> = {
       rights: "Все права защищены",
     },
     langToggle: { label: "KZ", switchTo: "kz" },
+    floatingContact: { label: "Связаться" },
   },
 
   kz: {
@@ -823,5 +825,6 @@ export const content: Record<Locale, Dictionary> = {
       rights: "Барлық құқықтар қорғалған",
     },
     langToggle: { label: "RU", switchTo: "ru" },
+    floatingContact: { label: "Хабарласу" },
   },
 };
