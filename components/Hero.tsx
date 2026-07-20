@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLocale } from "@/lib/locale";
 import { waLink } from "@/lib/content";
 import Reveal from "@/components/Reveal";
@@ -12,14 +13,17 @@ export default function Hero() {
       id="top"
       className="relative flex min-h-svh flex-col justify-center overflow-hidden bg-ink text-ivory"
     >
-      {/* Фоновая композиция вместо фото — заменить на next/image, когда появится съёмка */}
       <div aria-hidden="true" className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(120%_90%_at_75%_15%,#4a3b33_0%,#2a211c_45%,#1a1512_100%)]" />
-        <div className="absolute -right-40 top-1/2 h-[130vmin] w-[130vmin] -translate-y-1/2 rounded-full border border-gold/15" />
-        <div className="absolute -right-20 top-1/2 h-[90vmin] w-[90vmin] -translate-y-1/2 rounded-full border border-gold/10" />
-        <span className="absolute right-[-4vw] top-1/2 hidden -translate-y-1/2 select-none font-display text-[38vh] italic leading-none text-ivory/[0.04] md:block">
-          E
-        </span>
+        <Image
+          src="/images/product-coconut.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[center_20%] md:object-[80%_15%]"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(100deg,#1a1512_0%,rgba(26,21,18,0.92)_28%,rgba(26,21,18,0.55)_55%,rgba(26,21,18,0.25)_75%,rgba(26,21,18,0.4)_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink to-transparent" />
       </div>
 
       <div className="relative mx-auto w-full max-w-6xl px-5 pb-24 pt-32 md:px-8">
