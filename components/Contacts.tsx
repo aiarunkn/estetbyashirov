@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale } from "@/lib/locale";
-import { waLink, LINKS } from "@/lib/content";
+import { waLink, LINKS, PHONE_DISPLAY } from "@/lib/content";
 import Reveal from "@/components/Reveal";
 import Eyebrow from "@/components/Eyebrow";
 
@@ -26,7 +26,7 @@ export default function Contacts() {
             <ul className="space-y-4 text-sm">
               <li>
                 <a
-                  href={waLink()}
+                  href={waLink(t.hero.waMessage)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex items-baseline gap-3"
@@ -35,8 +35,7 @@ export default function Contacts() {
                     {t.contacts.whatsapp}
                   </span>
                   <span className="border-b border-transparent text-base text-ivory transition-colors group-hover:border-gold group-hover:text-gold">
-                    {/* TODO: реальный номер */}
-                    +7 ··· ··· ·· ··
+                    {PHONE_DISPLAY}
                   </span>
                 </a>
               </li>
@@ -56,39 +55,44 @@ export default function Contacts() {
                 </a>
               </li>
               <li>
-                <a
-                  href={LINKS.twoGis}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="border-b border-transparent text-base text-ivory transition-colors hover:border-gold hover:text-gold"
-                >
-                  {t.contacts.map}
-                </a>
+                <p className="mt-2 inline-block rounded-sm border border-gold/30 px-4 py-2 text-xs uppercase tracking-[0.15em] text-gold">
+                  {t.contacts.kaspi}
+                </p>
               </li>
             </ul>
           </Reveal>
 
-          <Reveal delay={0.08}>
-            <div className="space-y-6 text-sm">
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.2em] text-taupe">
-                  {t.contacts.addressLabel}
-                </p>
-                <p className="mt-1 text-base text-sand">{t.contacts.address}</p>
-              </div>
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.2em] text-taupe">
-                  {t.contacts.hoursLabel}
-                </p>
-                <p className="mt-1 text-base text-sand">{t.contacts.hours}</p>
-              </div>
+          <Reveal delay={0.08} className="md:col-span-2">
+            <div className="grid gap-8 sm:grid-cols-2">
+              {t.studios.cities.map((city) => (
+                <div key={city.name}>
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-taupe">
+                    {city.name}
+                  </p>
+                  <ul className="mt-2 space-y-2.5">
+                    {city.branches.map((branch) => (
+                      <li key={branch.address} className="text-base leading-snug text-sand">
+                        {branch.twoGis ? (
+                          <a
+                            href={branch.twoGis}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="border-b border-transparent transition-colors hover:border-gold hover:text-gold"
+                          >
+                            {branch.address}
+                          </a>
+                        ) : (
+                          branch.address
+                        )}
+                        {branch.hours && (
+                          <span className="block text-sm text-sand/60">{branch.hours}</span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
-          </Reveal>
-
-          <Reveal delay={0.16}>
-            <p className="inline-block rounded-sm border border-gold/30 px-4 py-2 text-xs uppercase tracking-[0.15em] text-gold">
-              {t.contacts.kaspi}
-            </p>
           </Reveal>
         </div>
 

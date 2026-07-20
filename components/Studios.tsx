@@ -33,19 +33,8 @@ export default function Studios() {
               </p>
             </div>
 
-            <a
-              href={waLink(t.studios.waMessage)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-10 inline-block rounded-full border border-espresso px-8 py-3.5 text-sm text-espresso transition-colors hover:border-gold hover:bg-gold hover:text-ink"
-            >
-              {t.studios.cta}
-            </a>
-          </Reveal>
-
-          <div className="flex flex-col justify-center gap-4">
-            <Reveal>
-              <div className="relative aspect-[16/10] overflow-hidden rounded-sm">
+            <Reveal delay={0.1}>
+              <div className="relative mt-10 aspect-[16/10] overflow-hidden rounded-sm">
                 <Image
                   src={t.studios.openingImage.src}
                   alt={t.studios.openingImage.alt}
@@ -55,20 +44,58 @@ export default function Studios() {
                 />
               </div>
             </Reveal>
-            {t.studios.items.map((studio, i) => (
-              <Reveal key={studio.name} delay={i * 0.08}>
-                <address className="flex items-baseline justify-between gap-6 rounded-sm border border-espresso/10 bg-cream px-6 py-5 not-italic">
-                  <div>
-                    <h3 className="font-display text-xl text-espresso">{studio.name}</h3>
-                    <p className="mt-1 text-sm text-mocha/80">{studio.address}</p>
-                    <p className="mt-0.5 text-sm text-mocha/60">{studio.hours}</p>
+          </Reveal>
+
+          <div className="flex flex-col justify-center gap-10">
+            {t.studios.cities.map((city, ci) => (
+              <Reveal key={city.name} delay={ci * 0.08}>
+                <div>
+                  <h3 className="mb-4 text-xs font-medium uppercase tracking-[0.25em] text-gold">
+                    {city.name}
+                  </h3>
+                  <div className="flex flex-col gap-4">
+                    {city.branches.map((branch) => (
+                      <address
+                        key={branch.address}
+                        className="rounded-sm border border-espresso/10 bg-cream px-6 py-5 not-italic"
+                      >
+                        <div className="flex items-baseline justify-between gap-6">
+                          <p className="font-display text-lg leading-snug text-espresso">
+                            {branch.address}
+                          </p>
+                          {branch.note && (
+                            <span className="shrink-0 text-[10px] uppercase tracking-[0.18em] text-gold">
+                              {branch.note}
+                            </span>
+                          )}
+                        </div>
+                        {branch.hours && (
+                          <p className="mt-1.5 text-sm text-mocha/70">{branch.hours}</p>
+                        )}
+                        <div className="mt-4 flex flex-wrap items-center gap-5">
+                          <a
+                            href={waLink(t.studios.waMessage)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="border-b border-gold pb-0.5 text-sm text-espresso transition-colors hover:text-gold"
+                          >
+                            {t.studios.cta}
+                          </a>
+                          {branch.twoGis && (
+                            <a
+                              href={branch.twoGis}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-sm text-taupe transition-colors hover:text-gold"
+                            >
+                              {t.studios.twoGisLabel}
+                            </a>
+                          )}
+                        </div>
+                      </address>
+                    ))}
                   </div>
-                  {studio.note && (
-                    <span className="shrink-0 text-[10px] uppercase tracking-[0.18em] text-gold">
-                      {studio.note}
-                    </span>
-                  )}
-                </address>
+                </div>
               </Reveal>
             ))}
           </div>

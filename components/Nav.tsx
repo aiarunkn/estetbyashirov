@@ -76,7 +76,7 @@ export default function Nav() {
             className={`text-xs font-medium uppercase tracking-[0.2em] transition-colors hover:text-gold ${
               solid ? "text-taupe" : "text-sand"
             }`}
-            aria-label={t.langToggle.switchTo === "en" ? "Switch to English" : "Переключить на русский"}
+            aria-label={t.langToggle.switchTo === "kz" ? "Қазақ тіліне ауысу" : "Переключить на русский"}
           >
             {t.langToggle.label}
           </button>

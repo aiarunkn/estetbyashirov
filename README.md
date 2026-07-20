@@ -15,15 +15,14 @@ npm run build   # production-сборка
 
 Весь текст и данные — в одном файле: **`lib/content.ts`**.
 
-Обязательно замените `TODO`-заглушки:
+Ключевые данные:
 
 | Что | Где в `lib/content.ts` |
 |---|---|
-| Номер WhatsApp | константа `WHATSAPP_NUMBER` (формат `77001234567`, без `+`) |
-| Instagram / 2ГИС | объект `LINKS` |
-| Адреса и часы студий | `studios.items` |
-| Адрес и часы в футере | `contacts.address`, `contacts.hours` |
-| Отображаемый номер в футере | `components/Contacts.tsx` (строка `+7 ··· ··· ·· ··`) |
+| Номер WhatsApp | `WHATSAPP_NUMBER` (ссылки строятся через `waLink()` → `wa.clck.bar`) |
+| Отображаемый номер | `PHONE_DISPLAY` |
+| Instagram | объект `LINKS` |
+| Филиалы по городам (адрес, часы, 2ГИС) | `studios.cities` — поля `hours` и `twoGis` опциональны и появляются на сайте, как только заполнены |
 
 ## Как добавить фотографии
 
@@ -54,10 +53,10 @@ npm run build   # production-сборка
    Пути к фото товаров уже прописаны в `content.ts` (`products.items[].image`).
    Для hero добавьте `priority`.
 
-## Как включить английскую версию
+## Языки (RU/KZ)
 
-Словарь уже двуязычный: `content.en` в `lib/content.ts` содержит краткие английские заготовки.
-Допишите/отредактируйте тексты в `en` — переключатель **EN/RU** в шапке уже работает.
+Словарь двуязычный: `content.ru` и `content.kz` в `lib/content.ts`.
+Переключатель **KZ/RU** в шапке работает и запоминает выбор (localStorage).
 
 ## Деплой на Vercel
 
