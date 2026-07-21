@@ -296,9 +296,7 @@ export const content: Record<Locale, Dictionary> = {
         {
           name: "Алматы",
           branches: [
-            { address: "ЖК Комфорт Сити, проспект Серкебаева, 146/3" },
-            { address: "ЖК O'NER, улица Тургут Озала, 194, блок 14" },
-            { address: "Проспект Назарбаева, 174а" },
+            { address: "Наурызбай батыра, 111" },
           ],
         },
         {
@@ -616,9 +614,7 @@ export const content: Record<Locale, Dictionary> = {
         {
           name: "Алматы",
           branches: [
-            { address: "Комфорт Сити ТК, Серкебаев даңғылы, 146/3" },
-            { address: "O'NER ТК, Тұрғыт Озал көшесі, 194, 14-блок" },
-            { address: "Назарбаев даңғылы, 174а" },
+            { address: "Наурызбай батыр көшесі, 111" },
           ],
         },
         {
